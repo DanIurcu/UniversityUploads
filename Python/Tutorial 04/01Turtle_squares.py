@@ -2,9 +2,6 @@
 
 from turtle import *
 
-
-
-
 def draw_square(length):
     forward(length)
     left(90)
@@ -23,8 +20,6 @@ def draw_square(length):
 for x in range(1, 5):
     length = input("What length would you like the sides of square " + str(x) + " to be?")
     draw_square(int(length))
-
-
 
 exitonclick()
 
