@@ -25,7 +25,7 @@ public class Coursework extends JFrame implements ActionListener, KeyListener {
     
 public static void main(String[] args) {
         // This is required for the coursework.
-        JOptionPane.showMessageDialog(null, "Andy Wicks - wa02");
+        JOptionPane.showMessageDialog(null, "Daniel Roberts");
         Coursework prg = new Coursework();
 }
 
@@ -39,13 +39,13 @@ public Coursework() {
 private void view() {
     Font fnt = new Font("Georgia", Font.PLAIN, 24);
     setExtendedState(JFrame.MAXIMIZED_BOTH);
-    setTitle("Coursework - Andy Wicks");
+    setTitle("Coursework - Daniel Roberts");
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     
     JPanel cen = new JPanel();
     cen.setLayout(new FlowLayout());
     
-    String html = "<html><body>Hello <b>Andy</b></body></html>";
+    String html = "<html><body>Hello <b>Danny</b></body></html>";
     JLabel cenLbl = new JLabel(html);
     cenLbl.setFont(fnt);
     cen.add(cenLbl);
@@ -57,6 +57,12 @@ private void view() {
     JButton wstButton = new JButton(wstHtml);
     wst.add(wstButton);
     add(BorderLayout.WEST, wst);
+    
+    wstButton.addActionListener(new ActionListener(){
+        public void actionPerformed(ActionEvent ae){
+            cenLbl.setText("<html><body><b>SHAZAM!</b></body></html>");
+        }
+});
     
     setVisible(true);  // Needed to ensure that the items can be seen.
     }
