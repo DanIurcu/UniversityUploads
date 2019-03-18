@@ -77,11 +77,12 @@ class AllNotes extends CommonCode {
     }
     
     public String searchAllNotesByKeyword(String noteList, int i, String s) {
-        i= 0;
-        while(i <allNotes.size()) {
-            if (allNotes.get(i).getNote().contains(s)) {
-                noteList += allNotes.get(i).getNote() + "\n";}i++;
-        }
-        
-        return noteList;}
+       if (i == allNotes.size()) {
+           return noteList;
+       }
+       if (allNotes.get(i).getNote().contains(s)) {
+           noteList += allNotes.get(i).getNote() + "\n";
+       }
+       return searchAllNotesByKeyword(noteList,i+1,s);
+    }
 }

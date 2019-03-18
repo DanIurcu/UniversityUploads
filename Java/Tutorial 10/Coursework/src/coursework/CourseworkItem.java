@@ -5,6 +5,10 @@
  */
 package coursework;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -33,5 +37,42 @@ public class CourseworkItem extends CommonCode {
              out.println("Error");
          }
          return newItem;
+     }
+     
+     public void deleteCourse(String courseName) {
+        String inputFileName = "Courses.txt";
+        String outputFileName = "tempFile.txt";
+        try {
+            File inputFile = new File(inputFileName);
+            File outputFile = new File(outputFileName);
+   
+        try (BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+             BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
+        
+        String line = null;
+        while ((line = reader.readLine()) != null) {
+            if (!line.equals(courseName)) {
+                writer.write(line);
+                writer.newLine();
+            }
+        }
+    }
+    if (inputFile.delete()) {
+        
+        if (!outputFile.renameTo(inputFile)) {
+                throw new IOException("Could not rename " + outputFileName + " to " + inputFileName);
+                }   
+    } else {
+            throw new IOException("Could not delete original input file " + inputFileName);
+      }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+         }
+     }
+     
+        public String amendCourse() {
+            String amendedName = "";
+         
+         return amendedName;
      }
 }

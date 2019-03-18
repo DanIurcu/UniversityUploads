@@ -97,11 +97,11 @@ public class Coursework extends JFrame implements ActionListener, KeyListener {
         }
         
         if ("deleteCourse".equals(ae.getActionCommand())) {
-           
+           courseworkItem.deleteCourse(String.valueOf(courseList.getSelectedItem()));
+           courseList.removeItem(courseList.getSelectedItem());
         }
         
         if ("amendCourse".equals(ae.getActionCommand())) {
-           
         }
         
         if ("SearchKeyword".equals(ae.getActionCommand())){
